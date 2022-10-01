@@ -1,0 +1,22 @@
+{
+  "name": "simple-nodejs",
+  "version": "1.0.0",
+  "description": "simple nodejs app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thezainuddin/simple-nodejs.git"
+  },
+  "author": "zain uddin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thezainuddin/simple-nodejs/issues"
+  },
+  "homepage": "https://github.com/thezainuddin/simple-nodejs#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
