@@ -16,9 +16,5 @@ jobs:
         run : npm install pm2@latest -g
       - name: start the app
         run : pm2 start app.js
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
       - name: Simple Smoke Test
         run : newman run simple-nodejs-smoke-test.postman_collection.json
