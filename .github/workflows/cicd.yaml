@@ -12,6 +12,8 @@ jobs:
       - run: npm ci
       - name: List all the files
         run : ls -la
+      - name: Install PM2 on the runner
+        run : npm install pm2@latest -g
       - name: start the app
         run : pm2 start app.js
       - name: Simple Curl test
