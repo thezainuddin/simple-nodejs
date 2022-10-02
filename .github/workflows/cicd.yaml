@@ -14,7 +14,11 @@ jobs:
         run : ls -la
       - name: Install PM2 on the runner
         run : npm install pm2@latest -g
+  run:
+    steps:
       - name: start the app
         run : pm2 start app.js
+  test:
+    steps:
       - name: Simple Smoke Test
         run : newman run simple-nodejs-smoke-test.postman_collection.json
