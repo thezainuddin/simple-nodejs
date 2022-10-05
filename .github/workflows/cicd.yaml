@@ -1,7 +1,7 @@
 name: CICD Pipeline
 on: push
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout library
@@ -10,8 +10,6 @@ jobs:
         with:
           node-version: 16
       - run: npm ci
-      - name: List all the files
-        run : ls -la
       - name: Install PM2 on the runner
         run : npm install pm2@latest -g
       - name: start the app
