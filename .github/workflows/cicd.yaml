@@ -16,3 +16,13 @@ jobs:
         run : pm2 start app.js
       - name: Simple Smoke Test
         run : newman run simple-nodejs-smoke-test.postman_collection.json
+
+  docker-image-ecr:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout library
+          uses: actions/checkout@v3
+        - name: Build docker image
+          run : docker build -t simpleapp .
+        - name: list the directories
+          run : ls -al
