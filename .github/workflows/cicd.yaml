@@ -23,8 +23,6 @@ jobs:
     steps:
       - name: Checkout library
         uses: actions/checkout@v3
-      - name: Build docker image
-        run : docker build -t simpleapp .
       - name: list the docker images
         run : docker images
       - name: AWS credentials
@@ -41,9 +39,11 @@ jobs:
         env:
           REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           REPOSITORY: simpleapp
-          IMAGE_TAG: ${{ github.sha }}
+          IMAGE_TAG: ${{ steps.login-ecr.outputs.github_ref_name }}
         run: |
           echo ${{ steps.login-ecr.outputs.registry }}
           echo ${{ steps.login-ecr.outputs.github_ref_name }}
+          docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
+          docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
 
