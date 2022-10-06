@@ -44,5 +44,6 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
         run: |
           echo ${{ steps.login-ecr.outputs.registry }}
-          echo ${{ github.sha }}
+          echo ${{ steps.login-ecr.outputs.github_ref_name }}
+
 
