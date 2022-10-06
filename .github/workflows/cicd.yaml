@@ -19,6 +19,7 @@ jobs:
 
   docker-image-ecr:
       runs-on: ubuntu-latest
+      needs: build-and-test
       steps:
         - name: Checkout library
           uses: actions/checkout@v3
